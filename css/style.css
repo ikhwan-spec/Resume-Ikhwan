@@ -1,18 +1,17 @@
+/* ===== Reset & Base Styles ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
 body {
-  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(to bottom, #E3F2FD, #ffffff);
+  color: #222;
+  padding-top: 80px; /* space for navbar */
 }
 
-header {
-  background-color: #0078D7;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Navbar Styles */
+/* ===== Navbar ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -24,7 +23,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-sizing: border-box;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
@@ -39,25 +37,16 @@ header {
 }
 
 .nav-left a:hover, .nav-right a:hover {
-  color: #1e90ff;
+  color: #42A5F5;
   transform: scale(1.05);
 }
 
-.navbar i {
-  margin-right: 8px;
-  color: #1e90ff;
-}
+.navbar i { margin-right: 8px; color: #42A5F5; }
 
-/* Make sure the page content doesn’t hide under navbar */
-body {
-  margin: 0;
-  padding-top: 80px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
+/* ===== Language Selector ===== */
 .lang-selector {
   display: flex;
-  justify-content: flex-end; /* align to right */
+  justify-content: flex-end;
   align-items: center;
   background-color: #222;
   color: #f5f5f5;
@@ -65,9 +54,7 @@ body {
   font-size: 14px;
 }
 
-.lang-selector span {
-  margin-right: 10px;
-}
+.lang-selector span { margin-right: 10px; }
 
 .lang-selector a img {
   margin-left: 8px;
@@ -75,49 +62,60 @@ body {
   transition: transform 0.2s;
 }
 
-.lang-selector a img:hover {
-  transform: scale(1.2);
+.lang-selector a img:hover { transform: scale(1.2); }
+
+/* ===== Header / Hero ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 8%;
+  background: linear-gradient(135deg, #0D47A1, #42A5F5);
+  color: white;
+  border-radius: 0 0 50% 50% / 0 0 10% 10%;
+  animation: fadeIn 1s ease;
 }
 
-main {
-  padding: 20px;
+header h1 { font-size: 3rem; margin-bottom: 1rem; }
+header p { font-size: 1.2rem; opacity: 0.9; }
+header img {
+  width: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+/* ===== Card Section ===== */
 .card {
   background-color: white;
+  border-left: 6px solid #0078D7;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  max-width: 800px;
-  margin: 20px auto;
+  padding: 25px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s ease;
 }
 
-html {
-  height: 100%;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f5f5f5;
-  padding-top: 80px;
-}
+.card h1 { color: #0D47A1; margin-bottom: 10px; }
+.card ul { margin-left: 20px; }
+.card ul li { margin-bottom: 8px; }
 
-main {
-  flex: 1; /* pushes footer to bottom */
-  padding: 20px;
-}
-
+/* ===== Footer ===== */
 footer {
   background-color: #222;
   color: #fff;
   text-align: center;
   padding: 15px 0;
   font-size: 14px;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+  margin-top: auto;
 }
 
 footer a {
@@ -128,11 +126,14 @@ footer a {
   transition: color 0.3s ease;
 }
 
-footer a:hover {
-  color: #1e90ff;
-}
+footer a:hover { color: #42A5F5; }
+footer i { margin-right: 6px; }
 
-footer i {
-  margin-right: 6px;
-}
+/* ===== Main Content ===== */
+main { flex: 1; padding: 20px; }
 
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
