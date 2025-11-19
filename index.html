@@ -1,20 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Muhammad Ikhwan Mus'ab</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ===== Animated Gradient Background ===== */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px;
+      color: #222;
+      background: linear-gradient(-45deg, #42A5F5, #90CAF9, #E3F2FD, #BBDEFB);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== Particle Canvas ===== */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ===== Header / Hero Section ===== */
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+    }
+
+    /* ===== Cards ===== */
+    .card {
+      background: linear-gradient(145deg, #ffffff, #E3F2FD);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 900px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+      opacity: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* ===== Quick Highlights ===== */
+    .card ul { margin-left: 20px; }
+    .card ul li { margin-bottom: 10px; }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Welcome to My Personal Website</h1>
-  <p>Explore to know more about me!</p>
-</header>
+<!-- Particle Canvas -->
+<canvas id="particle-canvas"></canvas>
 
 <!-- Navigation Bar -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <nav class="navbar">
   <div class="nav-left">
     <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
@@ -28,23 +113,64 @@
   </div>
 </nav>
 
+<!-- Header / Hero -->
+<header>
+  <h1 class="animated-text">Hello, I'm <span class="name">Ikhwan 👋</span></h1>
+  <p class="animated-text delay">Welcome to my personal website. A journey of learning, creativity, and growth.</p>
+</header>
+
+
 <main>
+  <!-- About Preview -->
   <div class="card">
-    <h1>Hello, I'm Muhammad Ikhwan Mus'ab!</h1>
-    <img src="https://www.w3schools.com/w3images/avatar2.png" alt="My Photo" width="150">
-    <p>Diploma student in Information Management at UiTM Kedah. Passionate about web development, electronic record management, and technology solutions.</p>
-    
-    <h3>Highlights</h3>
+    <h2>Who Am I? ✨</h2>
+    <p>
+      I'm <b>Muhammad Ikhwan Mus'ab</b>, a Diploma student in Information Management at UiTM Kedah.
+      I enjoy building small web projects, exploring technology, and understanding how information
+      systems impact real-world organizations.
+    </p>
+  </div>
+
+  <!-- Quick Highlights -->
+  <div class="card">
+    <h2>Quick Highlights ⚡</h2>
     <ul>
-      <li>Completed internship at Pejabat Pengarah, USM Kampus Kejuruteraan</li>
-      <li>Experience in HTML, CSS, JavaScript, PHP & MySQL</li>
-      <li>Worked on small web projects and personal portfolio websites</li>
-      <li>Strong interest in information management and recordkeeping systems</li>
+      <li>3+ years learning coding & web development</li>
+      <li>Experience in managing <b>electronic records</b> for real organizations</li>
+      <li>Love building creative projects & solving problems</li>
+      <li>Enjoy working in teams and learning new things</li>
     </ul>
-    
-   </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="card">
+    <h2>My Journey Timeline 🗺️</h2>
+
+    <h3>2023 : Started My Diploma 🎓</h3>
+    <p>I began my journey in Information Management and discovered my interest in records, systems, and technology.</p>
+
+    <h3>2024 : First Coding Projects 💻</h3>
+    <p>I built mini websites, forms, and small systems — learning PHP, HTML, CSS, and databases.</p>
+
+    <h3>2025 : Improving & Exploring More 🚀</h3>
+    <p>I started enhancing my portfolio, joining Coding Challenges, and building more exciting web apps.</p>
+  </div>
+
+  <!-- Quote -->
+  <div class="card">
+    <h2>Quote That Inspires Me 💡</h2>
+    <p><i>"The best way to predict the future is to create it."</i></p>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="card">
+    <h2>Want to Know More? 👀</h2>
+    <p>Explore my website to learn more about my skills, education, and experiences.</p>
+    <p>Let’s connect and grow together! 🤝</p>
+  </div>
 </main>
 
+<!-- Footer -->
 <footer>
   <p>© 2025 Muhammad Ikhwan Mus'ab bin Shamsul Azman | All rights reserved</p>
   <div class="social-icons">
@@ -54,6 +180,94 @@
   </div>
 </footer>
 
+<!-- Scripts -->
+<script>
+  // ===== Scroll-triggered fade-in =====
+  const cards = document.querySelectorAll('.card');
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 100;
+  }
+
+  function revealCards() {
+    cards.forEach(card => {
+      if (isInViewport(card)) {
+        card.style.opacity = 1;
+        card.style.transform = 'translateY(0)';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealCards);
+  window.addEventListener('load', revealCards);
+
+  // ===== Particle Animation =====
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  const particles = [];
+  const particleCount = 60;
+  const mouse = { x: width / 2, y: height / 2 };
+
+  function random(min, max) { return Math.random() * (max - min) + min; }
+
+  function Particle() {
+    this.x = random(0, width);
+    this.y = random(0, height);
+    this.radius = random(2, 6);
+    this.speedX = random(-0.3, 0.3);
+    this.speedY = random(-0.3, 0.3);
+    this.alpha = random(0.3, 0.8);
+  }
+
+  Particle.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
+    ctx.fill();
+  }
+
+  Particle.prototype.update = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if (this.x > width) this.x = 0;
+    if (this.x < 0) this.x = width;
+    if (this.y > height) this.y = 0;
+    if (this.y < 0) this.y = height;
+
+    const dx = mouse.x - this.x;
+    const dy = mouse.y - this.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 150) {
+      this.x += dx * 0.002;
+      this.y += dy * 0.002;
+    }
+
+    this.draw();
+  }
+
+  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+  function animate() {
+    ctx.clearRect(0, 0, width, height); // keeps background bright
+    particles.forEach(p => p.update());
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+</script>
+
 </body>
 </html>
-
